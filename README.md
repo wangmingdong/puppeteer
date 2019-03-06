@@ -14,3 +14,6 @@ npm run start
 ``` bash
 pm2 start ./bin/www --name="pupppeteer"
 ```
+
+### 使用
+http://localhost:8001/screenshot?url=http://www.taobao.com
