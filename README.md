@@ -12,7 +12,7 @@ npm run start
 
 ### PM2启动
 ``` bash
-pm2 start ./bin/www --name="pupppeteer"
+pm2 start ./bin/www --name="puppeteer"
 ```
 
 ### 使用
