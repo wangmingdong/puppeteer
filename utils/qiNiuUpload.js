@@ -33,7 +33,7 @@ const mkdirsSync = (dirname) => {
     if (currentDay.length < 2) {
       currentDay = '0' + currentDay
     }
-    return `screenshot_${currentDate.getFullYear()}${currentMon}${currentDay}${Math.random().toString(16).substr(2)}.jpg`
+    return `screenshot_${currentDate.getFullYear()}${currentMon}${currentDay}${Math.random().toString(16).substr(2)}.jpeg`
   }
 
   // 删除文件

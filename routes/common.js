@@ -22,8 +22,9 @@ router.get('/', function(req, res, next) {
   (async () => {
     // 启动Chromium
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox'], // 解决node服务器部署报错：Running as root without --no-sandbox is not supported
-        headless: true  // 解决截图汉字乱码问题
+        args: ['--no-sandbox', '--disable-setuid-sandbox'], // 解决node服务器部署报错：Running as root without --no-sandbox is not supported
+        headless: true,  // 解决截图汉字乱码问题
+        ignoreHTTPSErrors: true
     });
     // const browser = await puppeteer.launch({ignoreHTTPSErrors: true, headless:false, args: ['--no-sandbox']});
     // 打开新页面
@@ -90,7 +91,12 @@ router.get('/', function(req, res, next) {
 
     try {
         const fileName = QiNiuUploadCtrl.rename()
-        await page.screenshot({path: `./routes/uploads/${fileName}`, fullPage:true}).catch(err => {
+        await page.screenshot({
+            path: `./routes/uploads/${fileName}`, 
+            fullPage: true,
+            type: 'jpeg',
+            quality: 100
+        }).catch(err => {
             console.log('截图失败');
             console.log(err);
             res.json({
