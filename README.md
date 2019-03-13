@@ -17,3 +17,6 @@ pm2 start ./bin/www --name="pupppeteer"
 
 ### 使用
 http://localhost:8001/screenshot?url=http://www.taobao.com
+
+### 在线
+http://148.70.56.11:8001/screenshot?url=http://www.taobao.com
