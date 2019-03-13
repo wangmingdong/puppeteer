@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
     }
   (async () => {
     // 启动Chromium
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({args: ['--no-sandbox']});
     // const browser = await puppeteer.launch({ignoreHTTPSErrors: true, headless:false, args: ['--no-sandbox']});
     // 打开新页面
     const page = await browser.newPage();
