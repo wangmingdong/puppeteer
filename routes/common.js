@@ -21,7 +21,10 @@ router.get('/', function(req, res, next) {
     }
   (async () => {
     // 启动Chromium
-    const browser = await puppeteer.launch({args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox'], // 解决node服务器部署报错：Running as root without --no-sandbox is not supported
+        headless: true  // 解决截图汉字乱码问题
+    });
     // const browser = await puppeteer.launch({ignoreHTTPSErrors: true, headless:false, args: ['--no-sandbox']});
     // 打开新页面
     const page = await browser.newPage();
