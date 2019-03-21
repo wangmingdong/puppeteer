@@ -62,9 +62,11 @@ router.get('/', function(req, res, next) {
             // document.documentElement
             if (document.scrollingElement) {
                 let scrollTop = document.scrollingElement.scrollTop;
+                // document.scrollingElement.scrollTop 获取当前页面的滚动条纵坐标位置
                 document.scrollingElement.scrollTop = scrollTop + scrollStep;
 
                 if (null != document.body && document.body.clientHeight > max_height_px) {
+                    // document.body.clientHeight 可是窗口高度
                     height_limit = true;
                 } else if (document.scrollingElement.scrollTop + scrollStep > max_height_px) {
                     height_limit = true;
